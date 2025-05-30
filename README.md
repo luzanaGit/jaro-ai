@@ -11,10 +11,7 @@ JaRo AI is a comprehensive platform designed to provide a centralized hub for va
 ## Table of Contents
 
 * [Software Stack](#software-stack)
-* [Prerequisites](#prerequisites)
 * [Getting Started](#getting-started)
-    * [Backend Setup](#backend-setup)
-    * [Frontend Setup](#frontend-setup)
 * [Usage](#usage)
 
 ---
@@ -24,93 +21,35 @@ JaRo AI is a comprehensive platform designed to provide a centralized hub for va
 This project leverages a modern and robust set of technologies to deliver a seamless user experience.
 
 * **Frontend**: Built with **React** and **Vite**, along with **HTML**, **CSS**, and **JavaScript**, to provide a dynamic and responsive web interface. This ensures users can access the AI platform conveniently from any web browser.
-* **Backend**: Powered by **Node.js** and **Express.js**, chosen for their flexibility and our team's proficiency, enabling efficient handling of API requests and server-side logic.
-* **Database**: **Firestore Database** is utilized for its NoSQL capabilities and ease of integration, which aligns with our team's familiarity.
+* **Backend**: Powered by **Node.js** and **Express.js**, chosen for their flexibility and our proficiency, enabling efficient handling of API requests and server-side logic.
+* **Database**: **Firestore Database** is utilized for its NoSQL capabilities and ease of integration, which aligns with our familiarity.
 * **Web Server**: **Firebase Hosting** is used for deploying the application, providing a reliable and scalable hosting solution.
 * **AI Models**: Integrates with **OpenRouter.AI**, leveraging their extensive collection of free AI models, allowing for diverse AI functionalities within the platform.
-
----
-
-## Prerequisites
-
-Before you begin, ensure you have the following installed on your system:
-
-* **Node.js**: A JavaScript runtime environment. You can download it from [nodejs.org](https://nodejs.org/). It's recommended to install the LTS (Long Term Support) version.
-* **npm** (Node Package Manager) or **Yarn**: These come bundled with Node.js. npm is typically preferred, but Yarn can also be used.
-* A code editor like **Visual Studio Code**: While not strictly a requirement, a robust code editor like [Visual Studio Code](https://code.visualstudio.com/) will greatly enhance your development experience.
-* (Optional) **Postman** or similar API platform: Useful for testing the backend API endpoints directly. Download it from [postman.com](https://www.postman.com/).
-
----
 
 ## Getting Started
 
 Follow these instructions to set up and run the JaRo AI application locally on your machine.
 
-### Backend Setup
+### Setup
 
-1.  **Clone the repository**:
+1.  Go to a directory of your choice, make a folder called ```jaro-ai```, open it, click "Open in Terminal", and clone the repository (download [Git](https://git-scm.com/downloads) if you haven't already!):
     ```bash
-    git clone <your-repository-url>
-    cd <your-repository-name>/backend # Navigate to your backend directory
+    git clone https://github.com/luzanaGit/jaro-ai
     ```
-    *(Replace `<your-repository-url>` and `<your-repository-name>` with your actual GitHub repository details.)*
 
-2.  **Install dependencies**:
+2.  Open "Node.js command prompt" and go to the directory where you cloned the repository (download [Node.js (LTS)](https://nodejs.org/) if you haven't already!):
+    <br><br>
+    Example:
+    If you cloned the repository to your desktop, it may be ```C:\Users\User\Desktop\jaro-ai```, in that case, after opening "Node.js command prompt", copy this:
     ```bash
-    npm install
-    # Or if you use Yarn:
-    # yarn install
-    ```
-
-3.  **Configure Environment Variables**: Create a `.env` file in the `backend` directory. You'll need to add your API keys for OpenRouter.AI and any necessary Firebase credentials.
-    ```
-    # Example .env content (adjust as per your actual configuration)
-    OPENROUTER_API_KEY=your_openrouter_api_key_here
-    FIREBASE_PROJECT_ID=your_firebase_project_id
-    # ... other Firebase config variables
-    ```
-    *Refer to your project's specific backend documentation or ask your team for the exact environment variables required.*
-
-4.  **Start the backend server**:
-    ```bash
-    npm start
-    # Or if you use Yarn:
-    # yarn start
-    ```
-    The backend server should now be running, typically on `http://localhost:3001` (or another port specified in your backend configuration).
-
-### Frontend Setup
-
-1.  **Navigate to the frontend directory**:
-    ```bash
-    cd ../frontend # Assuming you are in the backend directory
-    # Or if you are in the root directory:
-    # cd frontend
-    ```
-
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    # Or if you use Yarn:
-    # yarn install
-    ```
-
-3.  **Configure Environment Variables**: Similar to the backend, you might need a `.env` file in the `frontend` directory for any client-side configurations (e.g., backend API URL).
-    ```
-    # Example .env content (adjust as per your actual configuration)
-    VITE_APP_BACKEND_URL=http://localhost:3001
-    ```
-
-4.  **Start the frontend development server**:
-    ```bash
+    cd ".\Desktop\jaro-ai"
     npm run dev
-    # Or if you use Yarn:
-    # yarn dev
     ```
-    The Vite development server will start, and the application should open in your default web browser, typically at `http://localhost:5173` (or another port specified by Vite).
+    
+    The backend server should now be running, typically on `http://localhost:5173` (or another port specified in your backend configuration).
 
 ---
 
 ## Usage
 
-Once both the backend and frontend servers are running, you can access the JaRo AI platform through your web browser. You'll be able to interact with the various AI models offered via OpenRouter.AI.
+Once setup is done, you can access the JaRo AI platform through your web browser. You'll be able to interact with the various AI models offered via OpenRouter.AI.
