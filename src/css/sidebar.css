@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  --width: 240px;
+  --collapsed-width: 70px;
+  --time: 0.35s;
+  --bg-color: rgba(33, 37, 41, 0.75);
+  --hover-color: rgba(255, 255, 255, 0.05);
+  --selected-color: rgba(0, 255, 164, 0.2);
+  --text-color: #ffffff;
+  --accent-color: #dee2e6;
+  --blur: 14px;
+  --border-radius: 16px;
+  --transition: all var(--time) ease-in-out;
+  --glow-color: rgba(0, 255, 164, 0.6);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+  --ripple-duration: 0.6s;
+  --font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: #f8f9fa;
+  color: #212529;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--width);
+  background: var(--bg-color);
+  backdrop-filter: blur(var(--blur));
+  color: var(--text-color);
+  padding-top: 70px;
+  transition: var(--transition);
+  overflow-x: hidden;
+  box-shadow: 4px 0 20px var(--shadow-color);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-family);
+}
+
+.sidebar.collapsed {
+  width: var(--collapsed-width);
+}
+
+.sidebar .nav-link,
+.sidebar .nav-selected {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  color: var(--text-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: transparent;
+}
+
+.sidebar .nav-link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 120%;
+  height: 120%;
+  opacity: 0;
+  transition: transform var(--ripple-duration) ease, opacity var(--ripple-duration);
+  pointer-events: none;
+}
+
+.sidebar .nav-link:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.sidebar .nav-link:hover {
+  background: var(--hover-color);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.1);
+  transform: translateX(3px);
+}
+
+.sidebar .nav-selected {
+  background: var(--selected-color);
+  box-shadow: 0 0 8px var(--glow-color), inset 0 0 4px rgba(0, 0, 0, 0.3);
+  border-left: 4px solid var(--glow-color);
+}
+
+.sidebar .description {
+  font-size: 14px;
+  color: var(--accent-color);
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity var(--time) ease-in-out, transform var(--time);
+}
+
+.sidebar.collapsed .description {
+  display: none;
+  opacity: 0;
+}
+
+.sidebar.collapsed:hover {
+  width: var(--width);
+}
+
+.sidebar.collapsed:hover ~ .main-content {
+  margin-left: var(--width);
+}
+
+.sidebar.collapsed:hover .description {
+  display: inline;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.main-content {
+  margin-left: var(--width);
+  padding: 20px;
+  height: 100%;
+  transition: margin-left var(--time) ease;
+  background-color: #f1f3f5;
+  font-family: var(--font-family);
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: var(--collapsed-width);
+}
+
+.sidebar .nav-link svg,
+.sidebar .nav-selected svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.2));
+}
+
+.sidebar .nav-link:hover svg {
+  transform: scale(1.15) rotate(1deg);
+  filter: drop-shadow(0 0 4px var(--glow-color));
+}
